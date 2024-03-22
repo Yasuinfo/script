@@ -11,14 +11,10 @@
 
     <script>
         fetch('https://script.google.com/macros/s/AKfycbzcouRaX0l4uWAHFeFqtfrWFusD_8EJtB1_PUWuKs58_F3YjhrlJKACRPE1_0dlfsxP/exec')
-            .then(response => response.json())
+           .then(response => response.json())
             .then(data => {
-                const dataDiv = document.getElementById('data');
-                data.forEach(row => {
-                    const rowDiv = document.createElement('div');
-                    rowDiv.textContent = JSON.stringify(row);
-                    dataDiv.appendChild(rowDiv);
-                });
+                const dataPre = document.getElementById('data');
+                dataPre.textContent = JSON.stringify(data, null, 2);
             })
             .catch(error => console.error('Error fetching data:', error));
     </script>
