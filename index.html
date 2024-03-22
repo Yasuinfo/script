@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Data</title>
+</head>
+<body>
+    <h1>Data from Google Sheets</h1>
+    <div id="data"></div>
+
+    <script>
+        fetch('YOUR_SCRIPT_URL')
+            .then(response => response.json())
+            .then(data => {
+                const dataDiv = document.getElementById('data');
+                data.forEach(row => {
+                    const rowDiv = document.createElement('div');
+                    rowDiv.textContent = JSON.stringify(row);
+                    dataDiv.appendChild(rowDiv);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
